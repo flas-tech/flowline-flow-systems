@@ -302,24 +302,6 @@ a { color: inherit; }
 }
 .band.alt .chips li { background: var(--color-bg); }
 
-/* case study */
-.case { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(var(--space-8), 5vw, var(--space-16)); align-items: start; }
-.case-copy h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
-.case-copy > p { color: var(--color-text-muted); }
-.spec { margin: var(--space-6) 0; }
-.spec > div { display: grid; grid-template-columns: 9.5rem 1fr; gap: var(--space-4); border-top: 1px solid var(--color-border); padding-block: var(--space-3); }
-.spec dt { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-muted); }
-.spec dd { margin: 0; font-size: var(--text-sm); }
-.case-gallery { display: grid; grid-template-columns: 1.35fr 1fr; gap: var(--space-4); align-items: start; }
-.case-gallery figure { margin: 0; }
-.case-gallery img { border-radius: var(--radius-md); border: 1px solid var(--color-border); }
-.case-gallery figcaption { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); }
-@media (max-width: 880px) {
-  .case { grid-template-columns: 1fr; }
-  .spec > div { grid-template-columns: 1fr; gap: var(--space-1); }
-}
-@media (max-width: 560px) { .case-gallery { grid-template-columns: 1fr; } }
-
 @media (max-width: 1080px) { .nav { gap: var(--space-4); } }
 @media (max-width: 1000px) { .nav a:not(.nav-cta) { display: none; } }
 
