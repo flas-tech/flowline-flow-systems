@@ -18,26 +18,28 @@
 
 /* dark = default (test cell) */
 [data-theme='dark'] {
-  --color-bg: #0b0f14;
-  --color-surface: #111721;
-  --color-surface-2: #161d28;
-  --color-border: #263041;
-  --color-text: #eef2f7;
-  --color-text-muted: #9caabe;
-  --color-accent: #f0a03c;
-  --color-accent-hover: #ffb85c;
-  --color-on-accent: #17120a;
+  --color-bg: #080d14;
+  --color-surface: #0f1825;
+  --color-surface-2: #131f2f;
+  --color-border: #23364b;
+  --color-text: #eaf1f8;
+  --color-text-muted: #9aadc2;
+  --color-accent: #4aa3e3;
+  --color-accent-hover: #74bcf1;
+  --color-on-accent: #06121f;
+  --color-steel: #8fa3b8;
 }
 [data-theme='light'] {
-  --color-bg: #f4f5f7;
+  --color-bg: #f2f5f9;
   --color-surface: #ffffff;
-  --color-surface-2: #eceef2;
-  --color-border: #d3d8e0;
-  --color-text: #141a22;
-  --color-text-muted: #556174;
-  --color-accent: #9a5a06;
-  --color-accent-hover: #7d4703;
-  --color-on-accent: #fff8ef;
+  --color-surface-2: #e9eef4;
+  --color-border: #ccd6e1;
+  --color-text: #0f1b28;
+  --color-text-muted: #4d5f74;
+  --color-accent: #17477a;
+  --color-accent-hover: #0d3159;
+  --color-on-accent: #f4f9ff;
+  --color-steel: #63758a;
 }
 
 * { box-sizing: border-box; }
@@ -102,22 +104,22 @@ a { color: inherit; }
 .hero-shade {
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(100deg, var(--color-bg) 10%, color-mix(in oklab, var(--color-bg) 78%, transparent) 46%, transparent 78%),
+    linear-gradient(100deg, var(--color-bg) 18%, color-mix(in oklab, var(--color-bg) 90%, transparent) 52%, color-mix(in oklab, var(--color-bg) 55%, transparent) 76%, color-mix(in oklab, var(--color-bg) 18%, transparent) 100%),
     linear-gradient(to top, var(--color-bg) 2%, transparent 45%);
 }
 [data-theme='light'] .hero { color: #f2f5f9; }
 [data-theme='light'] .hero-shade {
   background:
-    linear-gradient(100deg, #0b0f14 12%, rgba(11,15,20,.82) 48%, rgba(11,15,20,.25) 85%),
+    linear-gradient(100deg, #060b12 18%, rgba(6,11,18,.9) 52%, rgba(6,11,18,.5) 78%, rgba(6,11,18,.2) 100%),
     linear-gradient(to top, var(--color-bg) 1%, rgba(11,15,20,.1) 40%);
 }
-[data-theme='light'] .hero .eyebrow { color: #ffc071; }
-[data-theme='light'] .hero .lede, [data-theme='light'] .hero dt { color: #c6d0dd; }
+[data-theme='light'] .hero .eyebrow { color: #9ccdf3; }
+[data-theme='light'] .hero .lede, [data-theme='light'] .hero dt { color: #c2d2e2; }
 [data-theme='light'] .hero .btn.ghost { color: #f2f5f9; border-color: rgba(255,255,255,.4); }
 .hero-inner { position: relative; max-width: 56rem; }
 .hero h1 { font-size: var(--text-2xl); font-weight: 900; }
 .hero .hl { color: var(--color-accent); }
-[data-theme='light'] .hero .hl { color: #ffc071; }
+[data-theme='light'] .hero .hl { color: #9ccdf3; }
 .lede { font-size: var(--text-base); color: var(--color-text-muted); max-width: 54ch; margin-top: var(--space-5); }
 .cta-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 .btn {
@@ -364,3 +366,25 @@ a { color: inherit; }
   color: var(--color-accent); border: 1px solid var(--color-accent); border-radius: 50%;
 }
 @media (max-width: 1140px) { .nav a:not(.nav-cta) { display: none; } }
+
+/* ---- brand lockup (logo) ---- */
+.brand { min-width: 0; }
+.logo { height: 2.85rem; width: auto; display: block; }
+[data-theme='dark'] .logo-light, [data-theme='light'] .logo-dark { display: none; }
+.foot-logo { height: 2.75rem; margin-bottom: var(--space-5); }
+@media (max-width: 600px) { .logo { height: 2.1rem; } }
+
+/* gauge-arc + wing-sweep motifs echoing the mark */
+.eyebrow { display: flex; align-items: center; gap: var(--space-3); }
+.eyebrow::after {
+  content: ''; flex: 1 1 auto; max-width: 5.5rem; height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+.band, .split, .contact, .cta-band { position: relative; }
+.band::before, .split::before, .contact::before, .cta-band::before {
+  content: ''; position: absolute; top: -1px; left: 0; height: 2px; width: min(38%, 22rem);
+  background: linear-gradient(90deg, var(--color-accent), color-mix(in oklab, var(--color-steel) 60%, transparent) 55%, transparent);
+  pointer-events: none;
+}
+[data-theme='light'] .hero dd, [data-theme='light'] .hero .stat-strip dd { color: #f2f5f9; }
+.hero .hl { text-shadow: 0 2px 24px rgba(0,0,0,.45); }
